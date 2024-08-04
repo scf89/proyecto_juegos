@@ -2,7 +2,7 @@ class SnakeGame {
     constructor() {
       this.boardSize = 20;
       this.snake = [{ x: 10, y: 10 }];
-      this.direction = { x: 0, y: 1 };
+      this.direction = { x: 0, y: 0 };
       this.food = this.generateFood();
     }
   

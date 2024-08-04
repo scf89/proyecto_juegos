@@ -4,6 +4,39 @@ import SnakeGame from './src/assets/components/SnakeGame.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
+  const snakeModal = document.getElementById('snake-modal');
+  const tictactoeModal = document.getElementById('tictactoe-modal');
+
+  // Definición de showModal
+  const showModal = (modal, messageId, buttonId, message) => {
+    console.log(modal);
+    const modalMessage = document.getElementById(messageId);
+    const closeButton = modal.querySelector('.close-button');
+    const acceptButton = modal.querySelector(`#${buttonId}`);
+
+    if (!modal || !modalMessage || !closeButton || !acceptButton) {
+      console.error('One of the modal elements is missing.');
+      return;
+    }
+
+    modalMessage.textContent = message;
+    modal.style.display = 'flex'; // Mostrar el modal
+
+    const closeModal = () => {
+      modal.style.display = 'none';
+      location.reload();
+    };
+
+    closeButton.onclick = closeModal;
+    acceptButton.onclick = closeModal;
+
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  };
+
   if (path.includes('tictactoe.html')) {
     // Inicializar Tres en Raya
     const game = new TicTacToe();
@@ -16,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.innerText = game.board[index];
         const winner = game.checkWinner();
         if (winner) {
-          alert(`${winner} ha ganado!`);
+          showModal(tictactoeModal, 'tictactoe-modal-message', 'tictactoe-modal-button', `${winner} ha ganado!`);
         }
       }
     });
@@ -41,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const boardElement = document.querySelector('.game-board');
     boardElement.style.gridTemplateColumns = `repeat(${game.boardSize}, 20px)`;
     boardElement.style.gridTemplateRows = `repeat(${game.boardSize}, 20px)`;
+    
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowUp') game.changeDirection({ x: 0, y: -1 });
       else if (e.key === 'ArrowDown') game.changeDirection({ x: 0, y: 1 });
@@ -51,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
       game.moveSnake();
       if (game.isGameOver()) {
-        alert('¡Has perdido!');
-        window.location.reload();
+        showModal(snakeModal, 'snake-modal-message', 'snake-modal-button', '¡Has perdido!');
       } else {
+        console.log('hola');
         boardElement.innerHTML = '';
         game.snake.forEach(segment => {
           const segmentElement = document.createElement('div');

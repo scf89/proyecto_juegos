@@ -3,16 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juego de Memoria</title>
+  <title>Juego de Ahorcado</title>
   <link rel="stylesheet" href="../../../style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Juego de Memoria</h1>
-    <div id="memory-game" class="game-container">
+    <h1>Juego de Ahorcado</h1>
+    <div id="hangman-game" class="game-container">
       <div class="game-board">
-        <!-- Las cartas del juego se generarán dinámicamente -->
+        <!-- El tablero del juego se generará dinámicamente -->
       </div>
+      <div class="hangman-status">
+        <p id="word-display">_ _ _ _ _</p>
+        <p id="guessed-letters"></p>
+        <p id="remaining-attempts">Intentos restantes: 6</p>
+        <div id="hangman-image">
+          <!-- Imagen del ahorcado se actualizará aquí -->
+        </div>
+      </div>
+      <input type="text" id="guess-input" placeholder="Ingresa una letra" maxlength="1">
+      <button id="guess-button">Adivinar</button>
     </div>
     <a href="../../../index.html">Volver al inicio</a>
   </div>

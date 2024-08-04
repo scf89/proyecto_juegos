@@ -81,11 +81,61 @@ nav a:hover {
   width: 100%;
 }
 
-#memory-game .game-board {
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  max-width: 400px;
-  width: 100%;
+#hangman-game .game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#hangman-game #word-display {
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  font-weight: bold;
+  color: #FF6F00;
+  margin: 20px 0;
+}
+
+#hangman-game #guessed-letters {
+  font-size: 1.5rem;
+  color: #FF6F00;
+  margin: 10px 0;
+}
+
+#hangman-game #remaining-attempts {
+  font-size: 1.2rem;
+  color: #FF6F00;
+  margin: 10px 0;
+}
+
+#hangman-game #hangman-image {
+  width: 200px;
+  height: 200px;
+  background: url('../../../images/hangman0.png') no-repeat center center;
+  background-size: contain;
+  margin: 20px 0;
+}
+
+#hangman-game #guess-input {
+  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #FF6F00;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+#hangman-game #guess-button {
+  background-color: #FF6F00;
+  color: #FFF;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#hangman-game #guess-button:hover {
+  background-color: #FFA000;
 }
 
 #snake-game .game-board {
@@ -95,20 +145,6 @@ nav a:hover {
   width: 100%;
   border: 5px solid #333; /* Borde que delimita el área de juego */
   border-radius: 10px; /* Opcional: para redondear las esquinas */
-}
-
-.snake {
-  background-color: green;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-
-.food {
-  background-color: red;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
 }
 
 .game-board div {
@@ -136,6 +172,20 @@ nav a:hover {
   background-size: cover;
 }
 
+.snake {
+  background-color: green !important;
+  border-radius: 10% !important;
+  width: 100%;
+  height: 100%;
+}
+
+.food {
+  background-color: red !important;
+  border-radius: 50% !important;
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 2.5rem;
@@ -155,8 +205,69 @@ nav a:hover {
   }
 
   #tic-tac-toe .game-board,
-  #memory-game .game-board,
+  #snake-game .game-board,
   #snake-game .game-board {
     max-width: 100%;
   }
 }
+
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Posición fija para cubrir la pantalla */
+  z-index: 1000; /* Aparece encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff; /* Fondo blanco para el contenido del modal */
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  color: #FF6F00; /* Color de la X */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #FFA000; /* Color al pasar el mouse sobre la X */
+}
+
+.modal p {
+  color: #FF6F00; /* Color del texto del mensaje en el modal */
+  font-size: 1.2rem;
+}
+
+.modal button {
+  background-color: #FF6F00; /* Fondo del botón */
+  color: #FFF; /* Color del texto del botón */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal button:hover {
+  background-color: #FFA000; /* Color del botón al pasar el mouse */
+}
+
+
