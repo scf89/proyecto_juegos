@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Definición de showModal
   const showModal = (modal, messageId, buttonId, message) => {
-    console.log(modal);
     const modalMessage = document.getElementById(messageId);
     const closeButton = modal.querySelector('.close-button');
     const acceptButton = modal.querySelector(`#${buttonId}`);
@@ -88,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (game.isGameOver()) {
         showModal(snakeModal, 'snake-modal-message', 'snake-modal-button', '¡Has perdido!');
       } else {
-        console.log('hola');
         boardElement.innerHTML = '';
         game.snake.forEach(segment => {
           const segmentElement = document.createElement('div');
