@@ -1,5 +1,5 @@
 import TicTacToe from './src/assets/components/TicTacToe.js';
-import MemoryGame from './src/assets/components/MemoryGame.js';
+import BrickBreaker from './src/assets/components/BrickBreaker.js';
 import SnakeGame from './src/assets/components/SnakeGame.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -52,21 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
-  } else if (path.includes('memorygame.html')) {
-    // Inicializar Juego de Memoria
-    const game = new MemoryGame();
-    const boardElement = document.querySelector('.game-board');
-    boardElement.innerHTML = game.shuffledCards.map((_, i) => `<div data-index="${i}"></div>`).join('');
-    boardElement.addEventListener('click', (e) => {
-      const index = e.target.dataset.index;
-      if (index !== undefined) {
-        game.selectCard(index);
-        e.target.innerText = game.shuffledCards[index];
-        if (game.isGameOver()) {
-          alert('¡Has ganado el juego de memoria!');
-        }
-      }
-    });
+  } else if (path.includes('brickbreaker.html')) {
+    // Inicializar Romper Ladrillos
+    const game = new BrickBreaker();
   } else if (path.includes('snakegame.html')) {
     // Inicializar Snake
     const game = new SnakeGame();

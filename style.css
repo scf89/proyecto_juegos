@@ -81,49 +81,67 @@ nav a:hover {
   width: 100%;
 }
 
-#hangman-game .game-board {
+#brick-breaker .game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-#hangman-game #word-display {
-  font-size: 2rem;
-  letter-spacing: 1rem;
+#brick-breaker canvas {
+  border: 2px solid #FF6F00;
+  border-radius: 10px;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#brick-breaker-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+#brick-breaker-modal .modal-content {
+  background-color: #FFF;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#brick-breaker-modal .close-button {
+  color: #FF6F00;
+  float: right;
+  font-size: 28px;
   font-weight: bold;
-  color: #FF6F00;
-  margin: 20px 0;
+  cursor: pointer;
 }
 
-#hangman-game #guessed-letters {
-  font-size: 1.5rem;
-  color: #FF6F00;
-  margin: 10px 0;
+#brick-breaker-modal .close-button:hover,
+#brick-breaker-modal .close-button:focus {
+  color: #FFA000;
 }
 
-#hangman-game #remaining-attempts {
+#brick-breaker-modal p {
+  color: #FF6F00;
   font-size: 1.2rem;
-  color: #FF6F00;
-  margin: 10px 0;
 }
 
-#hangman-game #hangman-image {
-  width: 200px;
-  height: 200px;
-  background: url('../../../images/hangman0.png') no-repeat center center;
-  background-size: contain;
-  margin: 20px 0;
-}
-
-#hangman-game #guess-input {
-  font-size: 1rem;
-  padding: 10px;
-  border: 1px solid #FF6F00;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-#hangman-game #guess-button {
+#brick-breaker-modal button {
   background-color: #FF6F00;
   color: #FFF;
   border: none;
@@ -134,7 +152,7 @@ nav a:hover {
   transition: background-color 0.3s;
 }
 
-#hangman-game #guess-button:hover {
+#brick-breaker-modal button:hover {
   background-color: #FFA000;
 }
 
@@ -143,8 +161,8 @@ nav a:hover {
   grid-template-rows: repeat(20, 1fr);
   max-width: 600px;
   width: 100%;
-  border: 5px solid #333; /* Borde que delimita el área de juego */
-  border-radius: 10px; /* Opcional: para redondear las esquinas */
+  border: 5px solid #333;
+  border-radius: 10px;
 }
 
 .game-board div {
@@ -209,24 +227,28 @@ nav a:hover {
   #snake-game .game-board {
     max-width: 100%;
   }
+  #brick-breaker canvas {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .modal {
-  display: none; /* Oculto por defecto */
-  position: fixed; /* Posición fija para cubrir la pantalla */
-  z-index: 1000; /* Aparece encima de otros elementos */
+  display: none;
+  position: fixed; 
+  z-index: 1000; 
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  background-color: rgba(0, 0, 0, 0.5); 
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background-color: #fff; /* Fondo blanco para el contenido del modal */
+  background-color: #fff; 
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -238,7 +260,7 @@ nav a:hover {
 }
 
 .close-button {
-  color: #FF6F00; /* Color de la X */
+  color: #FF6F00; 
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -247,17 +269,17 @@ nav a:hover {
 
 .close-button:hover,
 .close-button:focus {
-  color: #FFA000; /* Color al pasar el mouse sobre la X */
+  color: #FFA000; 
 }
 
 .modal p {
-  color: #FF6F00; /* Color del texto del mensaje en el modal */
+  color: #FF6F00; 
   font-size: 1.2rem;
 }
 
 .modal button {
-  background-color: #FF6F00; /* Fondo del botón */
-  color: #FFF; /* Color del texto del botón */
+  background-color: #FF6F00; 
+  color: #FFF;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -267,7 +289,7 @@ nav a:hover {
 }
 
 .modal button:hover {
-  background-color: #FFA000; /* Color del botón al pasar el mouse */
+  background-color: #FFA000; 
 }
 
 
