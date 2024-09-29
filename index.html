@@ -8,77 +8,69 @@
 </head>
 <body>
   <div class="container">
-    <h1>Bienvenido a los Juegos</h1>
-    <nav>
-      <ul>
-        <li><a href="#tictactoe" data-page="tictactoe">Tres en Raya</a></li>
-        <li><a href="#brickbreaker" data-page="brickbreaker">Romper Ladrillos</a></li>
-        <li><a href="#snake" data-page="snake">Snake</a></li>
-      </ul>
-    </nav>
+    <div id="menu">
+      <h1>Bienvenido a los Juegos</h1>
+      <nav>
+        <ul>
+          <li><a href="#tictactoe" data-page="tictactoe">Tres en Raya</a></li>
+          <li><a href="#brickbreaker" data-page="brickbreaker">Romper Ladrillos</a></li>
+          <li><a href="#snake" data-page="snake">Snake</a></li>
+        </ul>
+      </nav>
+      <p>Selecciona un juego del menú.</p>
+    </div>
     <div id="content">
-        <p>Selecciona un juego del menú.</p>
+        <div id="board-tic-tac-toe" class="container" style="display: none;">
+            <h1>Tres en Raya</h1>
+            <div id="tic-tac-toe" class="game-container">
+              <div class="game-board">
+                
+              </div>
+            </div>
+            <a href="../../../index.html">Volver al inicio</a>
+          </div>
+          <div id="tictactoe-modal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <p id="tictactoe-modal-message"></p>
+              <button id="tictactoe-modal-button">Aceptar</button>
+            </div>
+          </div>
+          <div id="board-brickbreaker" class="container" style="display: none;">
+            <h1>Romper Ladrillos</h1>
+            <div id="brick-breaker" class="game-container">
+              <canvas id="gameCanvas" width="480" height="320"></canvas>
+            </div>
+            <a href="../../../index.html">Volver al inicio</a>
+          </div>
+        
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <p></p>
+              <button onclick="location.reload()">Reiniciar</button>
+            </div>
+          </div>
+          <div id="board-snake" class="container" style="display: none;">
+            <h1>Snake</h1>
+            <div id="snake-game" class="game-container">
+              <div class="game-board-snake">
+               
+              </div>
+            </div>
+            <a href="../../../index.html">Volver al inicio</a>
+          </div>
+          <div id="snake-modal" class="modal">
+            <div class="modal-content">
+              <span class="close-button">&times;</span>
+              <p id="snake-modal-message"></p>
+              <button id="snake-modal-button">Aceptar</button>
+            </div>
+          </div>
       </div>
   </div>
   <script type="module" src="./main.js"></script>
 </body>
 </html>
-<!--<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Juegos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Bienvenido a Mini Juegos</h1>
-    <nav>
-        <ul>
-            <li><a href="#tic-tac-toe">Tres en Raya</a></li>
-            <li><a href="#brick-breaker">Rompe Ladrillos</a></li>
-            <li><a href="#snake-game">Serpiente</a></li>
-        </ul>
-    </nav>
-
-    <section id="tic-tac-toe" class="game-container">
-        <h2>Tres en Raya</h2>
-        <div class="game-board" data-game="tic-tac-toe"></div>
-        <div id="tictactoe-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <p id="tictactoe-modal-message"></p>
-                <button id="tictactoe-modal-button">Aceptar</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="brick-breaker" class="game-container">
-        <h2>Rompe Ladrillos</h2>
-        <canvas id="gameCanvas" width="480" height="320"></canvas>
-        <div id="brick-breaker-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <p id="brick-breaker-modal-message"></p>
-                <button id="brick-breaker-modal-button">Aceptar</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="snake-game" class="game-container">
-        <h2>Serpiente</h2>
-        <div class="game-board" data-game="snake-game"></div>
-        <div id="snake-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <p id="snake-modal-message"></p>
-                <button id="snake-modal-button">Aceptar</button>
-            </div>
-        </div>
-    </section>
-
-    <script src="/main.js"></script>
-</body>
-</html>-->
 
 

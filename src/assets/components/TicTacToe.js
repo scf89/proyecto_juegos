@@ -2,11 +2,13 @@ class TicTacToe {
     constructor() {
       this.board = Array(9).fill(null);
       this.currentPlayer = 'X';
+      this.movesCount = 0;
     }
   
     makeMove(index) {
       if (!this.board[index]) {
         this.board[index] = this.currentPlayer;
+        this.movesCount++;
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
       }
     }
@@ -23,6 +25,10 @@ class TicTacToe {
         if (this.board[a] && this.board[a] === this.board[b] && this.board[a] === this.board[c]) {
           return this.board[a];
         }
+      }
+
+      if (this.movesCount === 9) {
+        return 'Empate';
       }
   
       return null;
