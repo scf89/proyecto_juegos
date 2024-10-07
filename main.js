@@ -1,6 +1,6 @@
-import TicTacToe from './src/assets/components/TicTacToe.js';
 import BrickBreaker from './src/assets/components/BrickBreaker.js';
 import SnakeGame from './src/assets/components/SnakeGame.js';
+import { makeMove, checkWinner, initialState } from './src/assets/components/TicTacToe.js';
 
 
 function checkHash() {
@@ -21,6 +21,7 @@ const routes = {
 
 const contentDiv = document.getElementById('content');
 
+let currentTicTacToeState = initialState;
 // Función para cargar la página del juego
 function loadPage(page) {
   
@@ -35,17 +36,19 @@ function loadPage(page) {
     document.getElementById('board-tic-tac-toe').style.display = 'block';
     document.getElementById('board-snake').style.display = 'none';
     document.getElementById('board-brickbreaker').style.display = 'none';
-    const game = new TicTacToe();
+
+    // Renderiza el tablero
     const boardElement = document.querySelector('.game-board');
-    
     boardElement.innerHTML = Array(9).fill('').map((_, i) => `<div data-index="${i}"></div>`).join('');
-    
+
+    // Control de los movimientos
     boardElement.addEventListener('click', (e) => {
       const index = e.target.dataset.index;
       if (index !== undefined) {
-        game.makeMove(index);
-        e.target.innerText = game.board[index];
-        const winner = game.checkWinner();
+        currentTicTacToeState = makeMove(currentTicTacToeState, index);
+        e.target.innerText = currentTicTacToeState.board[index];
+        
+        const winner = checkWinner(currentTicTacToeState);
         if (winner) {
           const message = winner === 'Empate' ? '¡El juego ha terminado en empate!' : `${winner} ha ganado!`;
           const tictactoeModal = document.getElementById('tictactoe-modal');
